@@ -4,7 +4,7 @@ def find_sum_of_gp_terms(first_term, common_ratio, number_of_terms):
         for i in range(number_of_terms):
             term = first_term * common_ratio**i
             gp_sum += term
-            print(f"Term {i + 1}:  {gp_sum:.2f}")
+            print(f"y({i}):  {gp_sum:.2f}")
 
         return gp_sum
 
