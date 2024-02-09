@@ -78,7 +78,6 @@ columns=fullflexible
 \textbf{Question 11.9.3.8:}
 Find the sum to indicated number of term in each of the geometric progressions in $\sqrt{7} ,\sqrt{21} , 3\sqrt{7}, ....n$ terms\\
 \solution
- Sum of the geometric progression of $\sqrt{7}, \sqrt{21}, 3\sqrt{7},....n$ terms is\\
  \begin{center}
 \begin{tabular}{|c|c|c|}
    \hline
@@ -88,11 +87,13 @@ Find the sum to indicated number of term in each of the geometric progressions i
    \hline
    r & $\sqrt{3}$ & common ratio of the geometeric progression\\
    \hline
-   x(n) & $\sqrt{7(3^{n})}$& $n^{th}$ term of the geometric progession\\
+   x(n) & $\sqrt{7(3^{n})}u\brak{n}$& $n^{th}$ term of the geometric progession\\
    \hline
-   y(n) &$\frac{x(0)(r^{n+1}-1)}{r-1}$ &Sum of the n term of the geometric progression\\
+   y(n) &$\frac{x(0)(r^{n+1}-1)}{r-1}u\brak{n}$ &Sum of the n term of the geometric progression\\
    \hline 
+   
 \end{tabular}
+\\\\ \caption{\large{Table : Input parameters}}\\
 \end{center}
 \begin{center}
 \begin{align}
@@ -101,9 +102,8 @@ y\brak{n} &= x\brak{n}*u\brak{n}\\
 Y\brak{z} &= X\brak{z}U\brak{z}\\
 &=\sqrt{7}\brak{\frac{1}{1-\sqrt{3}z^{-1}}}\brak{\frac{1}{1-z^{-1}}}\\
 &=\brak{\frac{\sqrt{7}}{\sqrt{3}-1}}\brak{\brak{\frac{\sqrt{3}}{1-\sqrt{3}z^{-1}}}-\brak{\frac{1}{1-z^{-1}}}}\\
-\frac{1}{1-rz^{-1}} &$$\xleftrightarrow{\mathcal{Z}^{-1}} $$ r^nu(n)\\
-y\brak{n} &= \sqrt{7}\brak{\frac{\sqrt{3}^{n+1}-1}{\sqrt{3}-1}}u(n)
-\end{align}
+\frac{1}{1-rz^{-1}} &$$\xleftrightarrow{\mathcal{Z}^{-1}} $$ r^nu(n), \quad{|rz^{-1}|<1}\\
+y\brak{n} &= \sqrt{7}\brak{\frac{\sqrt{3}^{n+1}-1}{\sqrt{3}-1}}u(n) , \quad{|\sqrt{3}z^{-1}|<1}\end{align}
 
 \end{center}
 \begin{figure}[ht!]
