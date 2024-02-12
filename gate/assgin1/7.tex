@@ -23,9 +23,8 @@
 }
 \large\author{Kurre Vinay\\EE23BTECH11036}
 \maketitle
-\textbf{Question(IN 46):}
+\textbf{Question:}
 In the circuit shown ,$\omega=100\pi\text{rads/s}$, R1=R2=$2.2\Omega$ and L=$7\text{mH}$. the capacitance $\text{C}$ for which $Y_{in}$ is purely real is  $\text{mF}$ \\
-	\vspace{0.3cm}
 	\begin{center}
 	\begin{circuitikz} \centering \draw 
 		(0,4) to[sinusoidal voltage source, l=$V_{0}$cos($\omega$t)] (0,0)
@@ -33,11 +32,10 @@ In the circuit shown ,$\omega=100\pi\text{rads/s}$, R1=R2=$2.2\Omega$ and L=$7\t
 		(4,4) to[resistor, l=$R_1$ ] (4,2)
 		(4,2) to[inductor, l= $\text{L} $] (4,0) to[short ] (0,0)
 		(8,4)  to[short] (4,4)
-		(8,4) to[resistor, l= $R_2$] (8,2) to[capacitor,l=$\text{C}$] (8,0) to (4,0)
-		;
+		(8,4) to[resistor, l= $R_2$] (8,2) to[capacitor,l=$\text{C}$] (8,0) to (4,0);
 	\end{circuitikz}
 	\end{center}
-\hfill(GATE ST 2023)\\
+\hfill(GATE IN 2023 Q46)\\
 \solution
 \begin{table}[ht!]
  \begin{center}
@@ -52,6 +50,8 @@ In the circuit shown ,$\omega=100\pi\text{rads/s}$, R1=R2=$2.2\Omega$ and L=$7\t
    $X_{C}$ &$\frac{1}{s\text{C}}\Omega $ & Capacitive reactance \\
    \hline
    $\omega$ &$100\pi$rads/s& Angular frequency\\
+   \hline
+   $\text{V}$&$V_{0}$cos($\omega$t)&voltage of source\\
    \hline
 \end{tabular}
 \caption{Table: Input Parameters}
@@ -77,8 +77,4 @@ According to the question given, $Y_{in}$ is purely real , so imaginary part sho
 &\implies  \text{C}=1.446281\text{mF}
 \end{align}
 The capacitance of capacitor $\text{C}$ is 1.45$\text{mF}$
-\begin{figure}[ht!]
-\includegraphics[width=\columnwidth]{fig/fig3.png}
-\caption{Graph of Capacitance($\text{mF}$) vs Angular Frequency($\omega$)}
-\end{figure}
 \end{document}
