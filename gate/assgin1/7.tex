@@ -53,23 +53,27 @@ In the circuit shown ,$\omega=100\pi\text{rads/s}$, R1=R2=$2.2\Omega$ and L=$7\t
    \hline
    $\text{V}$&$V_{0}$cos($\omega$t)&voltage of source\\
    \hline
+   $R_1 , R_2$& $2.2\Omega$ &resistance of resistors\\
+   \hline
 \end{tabular}
 \caption{Table: Input Parameters}
 \end{center}
 \end{table}
 \begin{align}
 X_L&=\text{sL}\\
-&= 7s\Omega\\
 X_C&=\frac{1}{s\text{C}}\Omega\\
-Y_{in}&=\frac{1}{2.2+7s} + \frac{1}{2.2+\frac{1}{ \text{sC}}}\\
+Y_{in}&=\frac{1}{R_1+Ls} + \frac{1}{R_2+\frac{1}{ \text{sC}}}\\
+Y_{in}&=\frac{R_1-Ls}{R_1^2-\brak{Ls}^2} + \frac{R_2-\frac{1}{ \text{sC}}}{R_2^2-\brak{\frac{1}{ \text{sC}}}^2}\\
 s&=j\omega \\
-\implies  Y_{in}&=\frac{1}{2.2+7j\omega} + \frac{1}{2.2+\frac{1}{j\omega \text{C}}}\\
-\implies  Y_{in}&=\frac{1-j}{4.4} + \frac{2.2+\frac{j}{\omega\text{C}}}{(2.2)^2+\brak{\frac{1}{\omega\text{C}}}^2}
+\implies Y_{in}&=\frac{R_1-Lj\omega}{R_1^2-\brak{Lj\omega}^2} + \frac{R_2-\frac{1}{ j\omega \text{C}}}{R_2^2-\brak{\frac{1}{j\text{C}\omega}}^2}\\
+\implies Y_{in}&=\frac{R_1-Lj\omega}{R_1^2+\brak{L\omega}^2} + \frac{R_2+\frac{j}{ \omega \text{C}}}{R_2^2+\brak{\frac{1}{\text{C}\omega}}^2}
 \end{align}
 According to the question given, $Y_{in}$ is purely real , so imaginary part should be equal to zero\\
 \begin{align}
-&\implies  \frac{-1}{4.4}+\frac{\frac{1}{\omega\text{C}}}{(2.2)^2+\brak{\frac{1}{\omega\text{C}}}^2} = 0\\
-&\implies  \frac{\frac{1}{\omega\text{C}}}{(2.2)^2+\brak{\frac{1}{\omega\text{C}}}^2}=\frac{1}{4.4}\\
+&\implies \frac{-L\omega}{R_1^2+\brak{L\omega}^2} + \frac{\frac{1}{ \omega \text{C}}}{R_2^2+\brak{\frac{1}{ \text{C}\omega}}^2}=0\\
+&\implies \frac{-7(100\pi)}{(2.2)^2+\brak{7(100\pi)}^2} + \frac{\frac{1}{ (100\pi) \text{C}}}{(2.2)^2+\brak{\frac{1}{\text{C}(100\pi)}}^2}=0\\
+&\implies  \frac{-1}{4.4}+\frac{\frac{1}{\omega\text{C}}}{(2.2)^2+\brak{\frac{1}{\omega\text{C}}}^2}=0\\
+&\implies \frac{\frac{1}{\omega\text{C}}}{(2.2)^2+\brak{\frac{1}{\omega\text{C}}}^2}=\frac{1}{4.4}\\
 &\implies  (2.2)^2-\frac{4.4}{\omega\text{C}}+\brak{\frac{1}{\omega\text{C}}}^2=0\\
 &\implies  \brak{2.2-\frac{1}{\omega\text{C}}}^2=0\\
 &\implies  \frac{1}{\omega\text{C}}=2.2\\
@@ -77,4 +81,9 @@ According to the question given, $Y_{in}$ is purely real , so imaginary part sho
 &\implies  \text{C}=1.446281\text{mF}
 \end{align}
 The capacitance of capacitor $\text{C}$ is 1.45$\text{mF}$
+\begin{figure}[ht!]
+\includegraphics[width=\columnwidth]{figs/fig2.png}
+\caption{the graph opf admittance($Y_{in}$) amplitude}
+\end{figure}
+\end{document}
 \end{document}
