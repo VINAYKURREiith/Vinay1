@@ -14,7 +14,7 @@ plt.grid(True)
 plt.scatter(0.454545, 0, color='red', label='Touching real axis')
 plt.annotate(f'Real(Y_in) = 0.454545\nMax: (0.454545, 0)',
              xy=(0.454545,0),
-             xytext=(0.45449, 0),
+             xytext=(0.4535, 0),
              arrowprops=dict(facecolor='black', arrowstyle='->'))
 plt.legend()
 plt.savefig('figs/fig2.png')

@@ -22,10 +22,9 @@ int main() {
     double Y_in_imag[1000];  
     int i;
     for (i = 0; i < 1000; i++) {
-        C_values[i] = 0.1 + i * (4 - 0.1) / 999.0;
+        C_values[i] = 0 + i * (20 - 0.0001) / 999.0;
     }
-  //  printf("%f",OMEGA);
-FILE *outputFile = fopen("y_data.txt", "w"); // Open file for writing
+FILE *outputFile = fopen("y_data.txt", "w"); 
 
     if (outputFile) {
         for (i = 0; i < 1000; i++) {
