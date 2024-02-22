@@ -1,21 +1,16 @@
 import numpy as np
 import matplotlib.pyplot as plt
-Y_in_reals = []
-Y_in_imags = []
+Y_in = []
+C_values= []
 with open("y_data.txt", "r") as file:
     for line in file:
-        Y_in_real, Y_in_imag = map(float, line.split())
-        Y_in_reals.append(Y_in_real)
-        Y_in_imags.append(Y_in_imag)
-plt.plot(Y_in_reals, Y_in_imags)
-plt.xlabel('Real(Y_in)')
-plt.ylabel('Imaginary(Y_in)')
+        Y_in_real, C_value = map(float, line.split())
+        Y_in.append(Y_in_real)
+        C_values.append(C_value)
+plt.plot( C_values,Y_in)
+plt.xlabel('Capacitance(C)')
+plt.ylabel('magnitude of Y_in')
 plt.grid(True)
-plt.scatter(0.454545, 0, color='red', label='Touching real axis')
-plt.annotate(f'Real(Y_in) = 0.454545\nMax: (0.454545, 0)',
-             xy=(0.454545,0),
-             xytext=(0.4535, 0),
-             arrowprops=dict(facecolor='black', arrowstyle='->'))
 plt.legend()
 plt.savefig('figs/fig2.png')
 plt.show()
