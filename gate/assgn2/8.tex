@@ -67,13 +67,13 @@ Y\brak{s}&=\brak{\frac{1}{1+s}}\brak{\frac{1-e^{-2s}}{s}},\quad{\text{Re}\brak{s
 \end{align}
 \text{Proof:}
 \begin{align}
-\mathcal{L}x\brak{t} = &X\brak{s} = \int_{0}^{\infty} x\brak{t}e^{-st} \, dt \\
-\mathcal{L}\frac{dx\brak{t}}{dt} &= \int_{0}^{\infty}\frac{d}{dt}\brak{x\brak{t}e^{-st}} \, dt \\
+\mathcal{L}\left[x\brak{t}\right] = &X\brak{s} = \int_{0}^{\infty} x\brak{t}e^{-st} \, dt \\
+\mathcal{L}\left[\frac{dx\brak{t}}{dt}\right] &= \int_{0}^{\infty}\frac{d}{dt}\brak{x\brak{t}e^{-st}} \, dt \\
 &= sX\brak{s} - x\brak{0^-}\\
- \lim\limits_{s \to 0}\brak{ \int_{0}^{\infty}\frac{d}{dt}\brak{x\brak{t}e^{-st}} \, dt}&=\lim\limits_{s \to 0}\brak{ sX\brak{s} - x\brak{0^-}}\\
- \implies \int_{0}^{\infty}\frac{dx\brak{t}}{dt} \, dt &= \lim\limits_{s \to 0}\brak{ sX\brak{s} - x\brak{0^-}}\\
- \implies \left[x\brak{t} \right]_0^{\infty} &=\lim\limits_{s \to 0}\brak{ sX\brak{s} - x\brak{0^-}}\\
- \implies x\brak{\infty}-x\brak{0^-}&=\lim\limits_{s \to 0}\brak{ sX\brak{s} - x\brak{0^-}}\\
+ \lim\limits_{s \to 0}\left[ \int_{0}^{\infty}\frac{d}{dt}\brak{x\brak{t}e^{-st}} \, dt\right]&=\lim\limits_{s \to 0} \left[sX\brak{s} - x\brak{0^-}\right]\\
+ \implies \int_{0}^{\infty}\frac{dx\brak{t}}{dt} \, dt &= \lim\limits_{s \to 0}\left[sX\brak{s} - x\brak{0^-}\right]\\
+ \implies \left[x\brak{t} \right]_0^{\infty} &=\lim\limits_{s \to 0} \left[sX\brak{s} - x\brak{0^-}\right]\\
+ \implies x\brak{\infty}-x\brak{0^-}&=\lim\limits_{s \to 0} \left[sX\brak{s} - x\brak{0^-}\right]\\
  \implies x\brak{\infty}&=\lim\limits_{s \to 0} sX\brak{s}\\
  \lim\limits_{t \to \infty} x\brak{t} = & x\brak{\infty} = \lim\limits_{s \to 0} sX\brak{s}
 \end{align}
