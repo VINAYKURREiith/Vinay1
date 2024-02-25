@@ -48,7 +48,7 @@ Let $x_1\brak{t} = e^{-t}u\brak{t}$ and $x_2\brak{t} =u\brak{t}-u\brak{t-2}$, wh
 \begin{align}
 y\brak{t} &= x_1\brak{t}*x_2\brak{t}
 \end{align}
-from Table \tabref{tab:1}
+from \tabref{tab:1}
 \begin{align}
 y\brak{t} &= e^{-t}u\brak{t}*\brak{u\brak{t}-u\brak{t-2}}
 \end{align}
@@ -56,16 +56,33 @@ By applying Laplace transform
 \begin{align}
 Y\brak{s}&=X_1\brak{s}.X_2\brak{s}\\
 e^{-t}u\brak{t}&\xleftrightarrow{\mathcal{L}}\frac{1}{1+s} , \quad{ \text{Re}\brak{s}>-1}\\
-u\brak{t}-u\brak{t-2}&\xleftrightarrow{\mathcal{L}}\frac{1-e^{-2s}}{s} ,\quad{\text{Re}(s) > 0}\\
-Y\brak{s}&=\brak{\frac{1}{1+s}}\brak{\frac{1-e^{-2s}}{s}}\\
+u\brak{t}-u\brak{t-2}&\xleftrightarrow{\mathcal{L}}\frac{1-e^{-2s}}{s} ,\quad{\text{Re}\brak{s} > 0}\\
+Y\brak{s}&=\brak{\frac{1}{1+s}}\brak{\frac{1-e^{-2s}}{s}},\quad{\text{Re}\brak{s} > 0}\\
 &=\frac{1-e^{-2s}}{s\brak{s+1}}
+\end{align}
+ Final value theorem
+
+\begin{align}
+\lim\limits_{t \to \infty} x\brak{t} &= \lim\limits_{s \to 0} sX\brak{s}\\
+\end{align}
+\text{Proof:}
+\begin{align}
+\mathcal{L}x\brak{t} = &X\brak{s} = \int_{0}^{\infty} x\brak{t}e^{-st} \, dt \\
+\mathcal{L}\frac{dx\brak{t}}{dt} &= \int_{0}^{\infty}\frac{d}{dt}\brak{x\brak{t}e^{-st}} \, dt \\
+&= sX\brak{s} - x\brak{0^-}\\
+ \lim\limits_{s \to 0}\brak{ \int_{0}^{\infty}\frac{d}{dt}\brak{x\brak{t}e^{-st}} \, dt}&=\lim\limits_{s \to 0}\brak{ sX\brak{s} - x\brak{0^-}}\\
+ \implies \int_{0}^{\infty}\frac{dx\brak{t}}{dt} \, dt &= \lim\limits_{s \to 0}\brak{ sX\brak{s} - x\brak{0^-}}\\
+ \implies \left[x\brak{t} \right]_0^{\infty} &=\lim\limits_{s \to 0}\brak{ sX\brak{s} - x\brak{0^-}}\\
+ \implies x\brak{\infty}-x\brak{0^-}&=\lim\limits_{s \to 0}\brak{ sX\brak{s} - x\brak{0^-}}\\
+ \implies x\brak{\infty}&=\lim\limits_{s \to 0} sX\brak{s}\\
+ \lim\limits_{t \to \infty} x\brak{t} = & x\brak{\infty} = \lim\limits_{s \to 0} sX\brak{s}
 \end{align}
 By applying Final value theorem
 \begin{align}
-\lim\limits_{t \to \infty} y\brak{t} &= \lim\limits_{s \to 0} sY\brak{s}\\
+\lim\limits_{t \to \infty} y\brak{t}&= \lim\limits_{s \to 0} sY\brak{s}\\
 &=\lim\limits_{s \to 0} s\brak{\frac{1-e^{-2s}}{s\brak{s+1}}}\\
 &=\lim\limits_{s \to 0} \brak{\frac{1-e^{-2s}}{\brak{s+1}}}\\
-&= \brak{\frac{1-e^{0}}{0+1}}
+&= \brak{\frac{1-e^{0}}{0+1}}\\
 \lim\limits_{t \to \infty} y\brak{t} &= 0
 \end{align}
 
