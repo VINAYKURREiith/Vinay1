@@ -46,6 +46,8 @@ In the state-space representation of the system, the minimum number of state var
 	   \hline
 	   I&-&identity matrix \\
 	   \hline
+	   $\vec{\dot{x}}\brak{t}$ & $A\vec{x}\brak{t} + Bu\brak{t}$&derivative of State function of $ \vec{x}\brak{t}$\\
+	   \hline
 \end{tabular}
 \caption{Table: Input Parameters}
 \label{tab:1}
@@ -69,8 +71,8 @@ R = 6
 \end{align}
 The state-space representation of the system is given by:
 \begin{align}
-\dot{x}\brak{t} &= Ax\brak{t} + Bu\brak{t} \\
-y\brak{t} &= Cx\brak{t} + Du\brak{t}\\
+\vec{\dot{x}}\brak{t} &=A\vec{x}\brak{t} + Bu\brak{t}\\
+\vec{y}\brak{t} &= C\vec{x}\brak{t} + Du\brak{t}\\
 H\brak{s}&=\frac{Y\brak{s}}{U\brak{s}}=C\myvec {sI-A}^{-1}B + D  
 \end{align}
 Comparing the coefficients:
