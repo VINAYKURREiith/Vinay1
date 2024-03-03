@@ -36,17 +36,17 @@ III. $a_k$ = \begin{cases}
       0, &  k > 3 
    \end{cases}\\
 The average power of the signal x\brak{t} (rounded off to one decimal place) is \underline{\hspace{1cm}}. \\
+\hfill(GATE EC 2021)
 \solution\\
 \begin{table}[ht!]
 \begin{center}
-\label{table1:example}
 \begin{tabular}{|c|c|c|}
    \hline
    variable&value&description\\
    \hline
    $T_0$&6&Fundamental time period\\
    \hline
-   y\brak{t}&-&average power of the signal\\
+  $P_avg$&-&average power of the signal\\
    \hline
    x\brak{t}&$\sum\limits_{k=-\infty}^{\infty}a_ke^{jk\omega_0t}$&Input signal\\
    \hline
@@ -55,7 +55,8 @@ The average power of the signal x\brak{t} (rounded off to one decimal place) is 
       0, &  k > 3 
    \end{cases}&coefficients of the series \\
    \hline
-  
+  $a_0$&2&average of x\brak{t}\\
+   \hline
 \end{tabular}
 \caption{Table: Input Parameters}
 \end{center}
@@ -75,14 +76,14 @@ P&=\sum\limits_{n=-\infty}^{\infty}C_n\brak{\frac{1}{T}\int\limits_{\frac{-T}{2}
 By using Parsval's Power Theorem
 \begin{align}
 \frac{1}{T}\int\limits_{0}^{T}\left| x\brak{t}^2 \right|dt&=\sum\limits_{k=-\infty}^{\infty}\left| a_k \right|^2\\
-y\brak{t}&=\sum\limits_{k=-\infty}^{\infty}\left| a_k \right|^2\\
-&=2\sum\limits_{k=0}^{\infty}\left| a_k \right|^2\\
+P_avg&=\sum\limits_{k=-\infty}^{\infty}\left| a_k \right|^2\\
+&=2\sum\limits_{k=1}^{\infty}\left| a_k \right|^2 +|a_0|^2\\
 &=2\sum\limits_{k=1}^{3}\left| a_k \right|^2  +|a_0|^2 \\
 &=2\brak{1^2+2^2+3^2}+2^2\\
 &=32\\
-x\brak{n}&=2\brak{e^{\frac{j\pi t}{3}}+2e^{\frac{2j\pi t}{3}}+3e^{j\pi t}} + 2\\
+x\brak{n}&=2\text{Re}\brak{e^{\frac{j\pi t}{3}}+2e^{\frac{2j\pi t}{3}}+3e^{j\pi t}} + 2\\
 \text{x\brak{n} is real so, we get}\\
-x\brak{n}&=2\brak{cos\brak{\frac{\pi t}{3}}+2cos\brak{\frac{2\pi t}{3}}+3cos\brak{\pi t}} + 2
+\implies x\brak{n}&=2\brak{cos\brak{\frac{\pi t}{3}}+2cos\brak{\frac{2\pi t}{3}}+3cos\brak{\pi t}} + 2
 \end{align}
 The average power of the signal x\brak{t} (rounded off to one decimal place) is $32$
 \begin{figure}[ht!]
