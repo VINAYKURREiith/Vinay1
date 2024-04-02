@@ -59,19 +59,18 @@
 \bibliographystyle{IEEEtran}
 \begin{enumerate}[label=\thesection.\arabic*,ref=\thesection.\theenumi]
 \section{Software Installation}
-Run the following commands(for laptop)
+\item Run the following commands(for laptop)
 \begin{lstlisting}
 sudo apt-get update
 sudo apt-get install libffi-dev libsndfile1 python3-scipy  python3-numpy python3-matplotlib 
 sudo pip install cffi pysoundfile 
 \end{lstlisting}
-Run the following commands(for termex(mobile))
+\item Run the following commands(for termex(mobile))
 \begin{lstlisting}
 apt-get update
 apt-get install libffi-dev libsndfile1 python3-scipy  python3-numpy python3-matplotlib 
 apt install python3-cffi python3-soundfile 
 \end{lstlisting}
-
 \end{enumerate}
 
 \begin{enumerate}[label=\thesection.\arabic*,ref=\thesection.\theenumi]
@@ -85,32 +84,31 @@ $https://github.com/VINAYKURREiith/Vinay1/blob/master/audio-filter/codes/vinay.w
 \item
 \label{prob:spectrogram}
 You will find a spectrogram at \href{https://academo.org/demos/spectrum-analyzer}{\url{https://academo.org/demos/spectrum-analyzer}}. 
-Upload the sound file that you downloaded in Problem \ref{prob:input} in the spectrogram  and play.  Observe the spectrogram. What do you find?
+Upload the sound file that you downloaded in Problem  in the spectrogram  and play.  Observe the spectrogram. What do you find?
 \\
 
 \solution 
 The audio file is analyzed using spectrogram using the online platform \href{https://academo.org/demos/spectrum-analyzer}{\url{https://academo.org/demos/spectrum-analyzer}}.\\
-There are a lot of yellow lines between 440 Hz to 5KHz.  These represent the synthesizer key tones. Also, the key strokes
-are audible along with background noise.\\
+There are a lot of yellow lines between 440 Hz to 5KHz.  These represent the synthesizer key tones. Also, the key strokes are audible along with background noise.\\
 \begin{figure}[ht!]
 	\centering
-    \includegraphics[width=0.8\columnwidth]{figs/before.png }
+    \includegraphics[width=\columnwidth]{figs/before.png }
     \caption{Spectrogram of the audio file before Filtering}
     \label{fig:before_filter_plot}
 \end{figure}
 \item 
 \label{Python code}
-A Python Code is written to achieve Audio Filtering 
+A Python Code is written to achieve Audio Noise Filtering 
 \lstinputlisting{codes/3.py}\label{prob:audio_filter_problem}
 \item
-The output of the python script in Problem \ref{prob:output} is the audio file Sound\_With\_ReducedNoise.wav. Play the file in the spectrogram in Problem \ref{prob:spectrogram}. What do you observe?
+The output of the python script in Problem \ref{prob:output} is the audio file filtered.wav. Play the file in the spectrogram in Problem \ref{prob:spectrogram}. What do you observe?
 \\
 \solution The key strokes as well as background noise is subdued in the audio.  Also,  the signal is blank for frequencies above 5 kHz.
 \begin{figure}[ht!]
 	\centering
-    \includegraphics[width=0.8\columnwidth]{figs/after.png }
+    \includegraphics[width=\columnwidth]{figs/after.png }
     \caption{Spectrogram of the audio file before Filtering}
-    \label{fig:before_filter_plot}
+    \label{fig:after_filter_plot}
 \end{figure}
 \end{enumerate}
 \begin{enumerate}[label=\thesection.\arabic*,ref=\thesection.\theenumi]
@@ -128,7 +126,7 @@ y(n) = 0, n < 0 \label{prob:2.2}
 \end{multline}
 Sketch $y(n)$.\\
 Solve\\
-\solution  The C code calculates $y\brak{n}$ and generates values in a text file.
+\solution  The C code calculates $y\brak{n}$  and generates values in a text file.
 \begin{lstlisting}
 https://github.com/VINAYKURREiith/Vinay1/blob/master/audio-filter/codes/n.c
 \end{lstlisting} 
@@ -165,15 +163,17 @@ and find
 \end{equation}
 \solution From \eqref{eq:z_trans},
 \begin{align}
-{\mathcal {Z}}\{x(n-k)\} &=\sum _{n=-\infty }^{\infty }x(n-1)z^{-n}
+{\mathcal {Z}}\{x(n-1)\} &=\sum _{n=-\infty }^{\infty }x(n-1)z^{-n}
 \\
-&=\sum _{n=-\infty }^{\infty }x(n)z^{-n-1} = z^{-1}\sum _{n=-\infty }^{\infty }x(n)z^{-n}
+\text{Lets,  take $n-1=k$}\\
+&=\sum _{k=-\infty }^{\infty }x(k)z^{-(k+1)} \\&= z^{-1}\sum _{k=-\infty }^{\infty }x(k)z^{-k}\\
+&=z^{-1}X(z)
 \end{align}
 resulting in \eqref{eq:shift1}. Similarly, it can be shown that
 %
 \begin{equation}
 \label{eq:z_trans_shift}
-	{\mathcal {Z}}\{x(n-k)\} = z^{-k}X(z)
+	\implies {\mathcal {Z}}\{x(n-k)\} = z^{-k}X(z)
 \end{equation}
 
 \item Find
@@ -228,14 +228,16 @@ U(z) &= \sum _{n= 0}^{\infty}z^{-n}
 \end{align}
 using the formula for the sum of an infinite geometric progression.
 %
-\item Show that 
+\item Show that   
 \begin{equation}
 \label{eq:anun}
 a^nu(n) \xleftrightarrow{\mathcal{Z}} \frac{1}{1-az^{-1}} \quad \abs{z} > \abs{a}
 \end{equation}
 \solution 
 \begin{align}
-	a^nu(n) & \xleftrightarrow{\mathcal{Z}} \sum_{n = 0}^{\infty}\brak{az^{-1}}^n \\
+	a^nu(n) & \xleftrightarrow{\mathcal{Z}} \sum_{n = -\infty}^{\infty}a^nu(n)z^{-n} \\
+ &=\sum_{n = 0}^{\infty}a^nz^{-n}\\
+ &= 1+ az^{-1}+a^2z^{-2}+.......\\
 			&= \frac{1}{1-az^{-1}} \quad \abs{z} > \abs{a}
 \end{align}
 %
@@ -292,7 +294,14 @@ H(z) &= \frac{1}{1 + \frac{1}{2}z^{-1}} + \frac{ z^{-2}}{1 + \frac{1}{2}z^{-1}}
 using \eqref{eq:anun} and \eqref{eq:z_trans_shift}.
 \item Sketch $h(n)$. Is it bounded? Convergent? 
 \\
-\solution The following code plots $h\brak{n}$ 
+\solution \begin{align}
+h(n) = \brak{-\frac{1}{2}}^{n}u(n) + \brak{-\frac{1}{2}}^{n-2}u(n-2)\\
+ h(n) \text{ is convergent equation}\\
+\brak{\frac{-1}{2}} ^n \xrightarrow{} 0 \text{, when   }n \xrightarrow{} \infty \text{ So,}\\
+h(n) \xrightarrow{} 0\text{, when  } n \xrightarrow{} \infty
+\end{align}
+
+The following code plots $h\brak{n}$ 
 \begin{lstlisting}
 https://github.com/VINAYKURREiith/Vinay1/blob/master/audio-filter/codes/l.py
 \end{lstlisting}
@@ -380,9 +389,9 @@ In \eqref{eq:convolution}, we substitute $k = n - k$ to get
 \begin{align}
 y\brak{n} &= \sum_{k=-\infty}^{\infty}x\brak{k}h\brak{n - k} \\
 		  &= \sum_{n - k=-\infty}^{\infty}x\brak{n - k}h\brak{k} \\
-		  &= \sum_{k=-\infty}^{\infty}x\brak{n - k}h\brak{k}
+		 \implies  y\brak{n} &= \sum_{k=-\infty}^{\infty}x\brak{n - k}h\brak{k}
 \end{align}
-
+Hence,proved
 
 \end{enumerate}
 \begin{enumerate}[label=\thesection.\arabic*,ref=\thesection.\theenumi]
@@ -393,7 +402,12 @@ Compute
 \begin{equation}
 X(k) \define \sum _{n=0}^{N-1}x(n) e^{-\j2\pi kn/N}, \quad k = 0,1,\dots, N-1
 \end{equation}
-and $H(k)$ using $h(n)$.
+and $H(k)$ using $h(n)$.\\
+\solution
+\begin{align}
+    h(n) &= \brak{-\frac{1}{2}}^{n}u(n) + \brak{-\frac{1}{2}}^{n-2}u(n-2)\\
+    H\brak{k}&=\sum _{n=0}^{N-1}h(n) e^{-\j2\pi kn/N}, \quad k = 0,1,\dots, N-1
+\end{align}
 \item Compute 
 \begin{equation}
 Y(k) = X(k)H(k)
@@ -409,7 +423,12 @@ y\brak{n}={\frac {1}{N}}\sum _{k=0}^{N-1}Y\brak{k}\cdot e^{\j 2\pi kn/N},\quad n
 \begin{lstlisting}
 https://github.com/VINAYKURREiith/Vinay1/blob/master/audio-filter/codes/q.py
 \end{lstlisting}
-
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{figs/yn_by_dft.png}
+\caption{$y(n)$ obtained from IDFT is plotted }
+\label{fig:yn_verf_5.4}
+\end{figure}
 \item Repeat the previous exercise by computing $X(k), H(k)$ and $y(n)$ through FFT and IFFT.
 \solution The solution of this question can be found in the code below.
 \begin{lstlisting}
@@ -467,14 +486,12 @@ https://github.com/VINAYKURREiith/Vinay1/blob/master/audio-filter/codes/s.py
 \end{figure}
 
 \end{enumerate}
-\begin{enumerate}[label=\thesection.\arabic*,ref=\thesection.\theenumi]
 
-\section{\underline{EXERCISES}}
+\section{EXERCISES}
 \noindent Answer the following questions by looking at the python code in Problem \ref{prob:audio_filter_problem}.
-
-
+\begin{enumerate}[label=\thesection.\arabic*,ref=\thesection.\theenumi]
 \item
-The command
+\textbf{The command}
 \begin{lstlisting}
 	output_signal = signal.lfilter(b, a, input_signal)
 	\end{lstlisting}
@@ -585,3 +602,4 @@ A better filtering was found on setting the order of the filter to be 5.
 
 
 \end{document}
+
