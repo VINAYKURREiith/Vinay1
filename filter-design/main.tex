@@ -28,7 +28,7 @@
 
 \title{ \textbf{Filter Design}}
 
-\author{Kurre Vinay\EE23BTECH11036}
+\author{Kurre Vinay-EE23BTECH11036}
 \date{}
 
 \maketitle
@@ -76,13 +76,14 @@ be equal, so we let $\delta_1 = \delta_2 = \delta = 0.15$.
      \omega_{s2} &= 2\pi\frac{F_{s2}}{F_s} = 0.229 \pi\\
 \end{align}
 \end{enumerate}
+
 \subsection{The Analog filter}
 In the bilinear transform, the analog filter frequency ($\Omega$) is related to the corresponding digital filter frequency\brak{\omega} :
 \begin{align}
   \Omega = \tan \frac{\omega}{2}  
 \end{align}
 Using this relation, we obtain the analog passband and stopband frequencies as:
-$\Omega_{p1} = 0.5774, $\Omega_{p2} = 0.4633$ and $\Omega_{s1} = 0.6077$, $\Omega_{s2} = 0.4363$
+$\Omega_{p1} = 0.5774$, $ \Omega_{p2} = 0.4633$ and $\Omega_{s1} = 0.6077$, $\Omega_{s2} = 0.4363$
 respectively.
 
 \section{The IIR Filter Design}
@@ -95,17 +96,17 @@ Hence, we use the Chebyschev approximation to design our bandpass IIR filter.
 \begin{equation}
 \Omega_L = \frac{\Omega^2 - \Omega_0^2}{B\Omega} \label{eq:freq_transform}
 \end{equation}
-where $\Omega_0 = \sqrt{\Omega_{p1}\Omega_{p2}} = 0.644
-$ and $B = \Omega_{p2} - \Omega_{p1} = 0.1107$.
+where $\Omega_0 = \sqrt{\Omega_{p1}\Omega_{p2}} = 0.5172
+$ and $B = \Omega_{p2} - \Omega_{p1} = 0.1141$.
 
 Substituting $\Omega_{s1}$ and $\Omega_{s2}$ in \eqref{eq:freq_transform} we obtain the stopband edges of lowpass filter 
 \begin{align}
-    \Omega_{Ls1} &= \frac{\Omega_{s1}^2 - \Omega_0^2}{B\Omega_{s1}} = -1.502\\
-    \Omega_{Ls2} &= \frac{\Omega_{s2}^2 - \Omega_0^2}{B\Omega_{s2}} = 1.559
+    \Omega_{Ls1} &= \frac{\Omega_{s1}^2 - \Omega_0^2}{B\Omega_{s1}} = 1.4682\\
+    \Omega_{Ls2} &= \frac{\Omega_{s2}^2 - \Omega_0^2}{B\Omega_{s2}} = -1.5495
 \end{align}
 And we choose the minimum of these two stopband edges
 \begin{align}
-    \Omega_{Ls} = \mbox{min}(\vert \Omega_{Ls_1}\vert,\vert \Omega_{Ls_2}\vert) = 1.502.
+    \Omega_{Ls} = \mbox{min}(\vert \Omega_{Ls_1}\vert,\vert \Omega_{Ls_2}\vert) = 1.4682.
 \end{align}
 \item {The Low Pass Chebyschev Filter Paramters:} The magnitude of frequency response of the low pass filter is given by 
 \begin{align}
@@ -138,17 +139,17 @@ we obtain :
 N \geq \left\lceil \frac{\cosh^{-1}\sqrt{D_2/D_1}}{\cosh^{-1}\Omega_{Ls}} \right\rceil,
 \end{eqnarray}
 where $D_1 = \frac{1}{(1 - \delta)^2}-1$ and $D_2 = \frac{1}{\delta^2} - 1$ and $\left \lceil . \right \rceil$ is known as the ceiling operator . 
-\input{tables/filter_design_tab}
-we get $N\geq 4$ and $0.278 \leq \epsilon \leq 0.61$\\
+\input{tables/filter}
+we get $N\geq 4$ and $0.2145 \leq \epsilon \leq 0.6197$\\
 \newpage
 The below code plots \eqref{eq:mag_freq_response} for different values of $\epsilon$ .
 \begin{lstlisting}
-https://github.com/dhanushnayakh03/EE1205/tree/main/Audio_%20Filter/codes/plot1.py
+https://github.com/VINAYKURREiith/Vinay1/blob/master/filter-design/codes/fig1.py
 \end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\columnwidth]{figs/plot1.png}
-\caption{The Analog Low-Pass Frequency Response for $0.278  \leq \epsilon \leq 0.61$}
+\includegraphics[width=1\columnwidth]{figs/fig1.png}
+\caption{The Analog Low-Pass Frequency Response for $0.2145  \leq \epsilon \leq 0.6197$}
 \label{fig:H_for_diff_eb}
 \end{figure}
 
@@ -177,25 +178,25 @@ where $k$ is the index of the pole and \\
 
 The below code computes the values of $s_k$ and stores it in a text file. 
 \begin{lstlisting}
-https://github.com/dhanushnayakh03/EE1205/blob/main/Filter_Design/codes/sk_gen.c
+https://github.com/VINAYKURREiith/Vinay1/blob/master/filter-design/codes/poles.c
 \end{lstlisting}
 The poles obtained are formulated in the table below.
-\input{tables/sk_tab}
+\input{tables/sk}
 
 The below code plots the pole-zero plot.
 \begin{lstlisting}
-https://github.com/dhanushnayakh03/EE1205/blob/main/Filter_Design/codes/plot1.py
+https://github.com/VINAYKURREiith/Vinay1/blob/master/filter-design/codes/fig2.py
 \end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\columnwidth]{figs/Pole_Zero_plt.png}
+\includegraphics[width=1\columnwidth]{figs/fig2.png}
 \caption{The Pole zero plot and all the poles lie on an ellipse. The left and right poles have been identified as shown.}
 \label{fig:pole_zero_plt}
 \end{figure}
 The poles in the left half of the plane are considered in the design as we intend to design a stable system.\\
 Therefore the magnitude response is written as :- 
 \begin{align}
-    H_{a,LP}(s_L) &= \frac{G_{LP}}{\brak{s_L-s_5}\brak{s_L-s_6}\brak{s_L-s_7}\brak{s_L-s_8}}
+    H_{a,LP}(s_L) &= \frac{G_{LP}}{\brak{s_L-s_1}\brak{s_L-s_2}\brak{s_L-s_3}\brak{s_L-s_4}}
 \end{align}
 where $G_{LP}$ is the gain of the Low pass filter. Refer to \tabref{tab:values poles sk} for $s_k$ values.\\
 
@@ -203,14 +204,14 @@ We know that from \eqref{eq:mag_freq_response}:-
 \begin{align}
     \abs{ H_{a,LP}(s_L)} &= \frac{1}{\sqrt{1+\epsilon^2}} \text{at} \hspace{5pt} \Omega_{L}=1 \implies s_{L} = j \label{eq:Gain_eq_LP} 
 \end{align}
-Substituting respective values in \eqref{eq:Gain_eq_LP} we get $G_{LP}=0.4166$
+Substituting respective values in \eqref{eq:Gain_eq_LP} we get $G_{LP}=2.707$
 \begin{align}
-     H_{a,LP}(s_L) &= \frac{0.4166}{\brak{s_L-s_5}\brak{s_L-s_6}\brak{s_L-s_7}\brak{s_L-s_8}}\\
-     &= \frac{0.4166}{s_{L}^4 + 1.3022s_{L}^3 +1.84781s_{L}^2 + 1.16512s_{L} +0.435003}\label{eq:design}
+     H_{a,LP}(s_L) &= \frac{2.707}{\brak{s_L-s_1}\brak{s_L-s_2}\brak{s_L-s_3}\brak{s_L-s_4}}\\
+     &= \frac{2.707}{s_{L}^4 + 2.267s_{L}^3 +4.725s_{L}^2 + 4.865s_{L} +2.769}\label{eq:design}
 \end{align}
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\columnwidth]{figs/Design_vs_Specification.png}
+\includegraphics[width=1\columnwidth]{figs/fig3.png}
 \caption{Design vs Specification corresponding to \eqref{eq:design} and \eqref{eq:specification}}
 \label{fig:design_vs_specf}
 \end{figure}
@@ -230,11 +231,11 @@ As there is one to one correspondence between the filters so $\Omega=\Omega_{p1}
 \end{align}
 Substituting \eqref{eq:res1} in \eqref{eq:res2} we obtain Gain of required bass pass filter:
 \begin{align}
-    G_{BP} &= 1.0370 
+    G_{BP} &= 6.6438
 \end{align}
 Thus the response in s domain 
 \begin{align}
-    H_{a,BP}\brak{s} &= \frac{6.49\times 10^{-5}s^4}{s^8 + 0.144s^7 + 0.1682s^6 + 0.1810s^5 + 1.05s^4 + 0.750s^3 + 0.289s^2 + 0.0102s + 0.029} \label{eq:magnitude_bandpass_sdom}
+    H_{a,BP}\brak{s} &= \frac{17.985s^4}{5900.074s^8 + 1526.141s^7 + 6675.925s^6 + 1267.347s^5 + 2729.986s^4 + 339.010s^3 + 477.689s^2 + 29.211s + 30.208} \label{eq:magnitude_bandpass_sdom}
 \end{align}
 The expressions in the s-domain and gain factors are computed by writing a Python code. \\
 In Figure 3, we plot $\vert H_{a,BP}(j\Omega)\vert$ as a function of $\Omega$ for both positve as
@@ -242,24 +243,31 @@ well as negative frequencies.  We find that the passband and stopband frequencie
 match well with those obtained analytically through the bilinear transformation.
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\columnwidth]{figs/Band_Pass_Filter.png}
+\includegraphics[width=1\columnwidth]{figs/fig4.png}
 \caption{The Analog Bandpass Magnitude Response from \eqref{eq:magnitude_bandpass_sdom}.The filter design specifications are satisfied}
 \label{fig:band_pass_filter}
 \end{figure}
 \end{enumerate}
-
+\end{enumerate}
 \subsection{The Digital Filter}
+
 From the bilinear transformation, we obtain the digital bandpass filter from the corresponding analog filter as
 \begin{align}
     H_{d,BP}(z) = GH_{a,BP}(s)\vert_{s = \frac{1-z^{-1}}{1 + z^{-1}}}
 \end{align}
 Substituting $s=\frac{1-z^{-1}}{1+z^{-1}}$ in \eqref{eq:magnitude_bandpass_sdom} and calculating expression using a python code we get :
 \begin{align}
-    H_{d,BP}(z) &= \frac{G\brak{1 - 4z^{-2} + 6z^{-4} - 4z^{-6} + z^{-8}}}{3.6214 - 6.9496z^{-1} + 26.7376z^{-2} - 60.1464z^{-3} + 73.758z^{-4} - 49.572z^{-5} + 26.144z^{-6} - 7.62z^{-7} + 1.451z^{-8}}
+    H_{d,BP}(z) &= \frac{G(z^8 - 4z^6 + 6z^4 - 4z^2 + 1)}{18975.591z^8 - 82590.117z^7 + 202304.613z^6 - 319306.507z^5 + 359963.495z^4 - 288532.516z^3 + 165180.193z^2 - 60913.612z + 12652.173}
 \end{align}
 
-where $G=6.49\times 10^{-5}$    
-
+where $G=17.985$    
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\columnwidth]{figs/fig5.png}
+\caption{Digital Specification are met.Passband and stopband frequencies are same}
+\label{fig:digitial_band_pass_filter}
+\end{figure}
+\end{enumerate}
 \section{The FIR Filter}
 We design the FIR filter by first obtaining the (non-causal) lowpass equivalent using the Kaiser window
 and then
@@ -273,7 +281,7 @@ The stopband tolerance is $\delta=0.15$.The cutoff-frequency is given by :
 \end{align}
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\columnwidth]{figs/LPF_FIR.png}
+\includegraphics[width=1\columnwidth]{figs/fig6.png}
 \caption{Frequency response and impulse response of an ideal Low Pass Filter}
 \label{fig:LPF_FIR_1}
 \end{figure}
@@ -336,37 +344,37 @@ Therefore the desired impulse response is :
 \end{enumerate}
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\columnwidth]{figs/FIR_Low_Filter.png}
+\includegraphics[width=1\columnwidth]{figs/fig7.png}
 \caption{Magnitude Response of Low Pass Filter after using Kaiser Window}
 \label{fig:Kaiser_LPF_response}
 \end{figure}
 
 \subsection{The Equivalent Band Pass Filter}
-A Band-Pass Filter (BPF) can be obtained by subtracting the magnitude response of a Low-Pass Filter (LPF) with cutoff frequency $\omega_{p1}$ from another LPF magnitude response with cutoff frequency $\omega_{p2}$.
+A Band-Pass Filter (BPF) can be obtained by subtracting the magnitude response of a Low-Pass Filter (LPF) with cutoff frequency $\omega_{p2}$ from another LPF magnitude response with cutoff frequency $\omega_{p1}$.
 
 \begin{align}
     h_{BP}\brak{n} = 
 \begin{cases} 
-    \frac{\sin(w_{p2} n)}{n\pi} -\frac{\sin\brak{\omega_{p1}n}}{n\pi},  & \text{for } n\neq 0\\\
-    \frac{\omega_{p2}-\omega_{p1}}{\pi} &\text{for} n= 0
+    \frac{\sin(w_{p1} n)}{n\pi} -\frac{\sin\brak{\omega_{p2}n}}{n\pi},  & \text{for } n\neq 0\\\
+    \frac{\omega_{p1}-\omega_{p2}}{\pi} &\text{for} n= 0
 \end{cases} \label{eq:h(n)desired_for_LPF}
 \end{align}
 \begin{align}
-     \frac{\sin(\omega_{p2} n)}{n\pi} -\frac{\sin\brak{\omega_{p1}n}}{n\pi} &= 2\cos{\brak{\frac{\omega_{p2}n+\omega_{p1}n}{2}}}\sin{\brak{\frac{\omega_{p2}n-\omega_{p1}n}{2}}}\\
-            &= \frac{2\cos{\brak{0.365n\pi}}\sin{\brak{0.025n\pi}}}{n\pi}
+     \frac{\sin(\omega_{p1} n)}{n\pi} -\frac{\sin\brak{\omega_{p2}n}}{n\pi} &= 2\cos{\brak{\frac{\omega_{p1}n+\omega_{p2}n}{2}}}\sin{\brak{\frac{\omega_{p1}n-\omega_{p2}n}{2}}}\\
+            &= \frac{2\cos{\brak{1.0407n\pi}}\sin{\brak{0.1141n\pi}}}{n\pi}
 \end{align}
 Multipying by window function we get :
 \begin{align}
     h_{BP}\brak{n} = 
 \begin{cases} 
-   \frac{2\cos{\brak{0.365n\pi}}\sin{\brak{0.025n\pi}}}{n\pi},  & \text{for } -48\leq n \leq 48 \\
+   \frac{2\cos{\brak{1.0407n\pi}}\sin{\brak{0.1141n\pi}}}{n\pi},  & \text{for } -48\leq n \leq 48 \\
     0 &\text{otherwise}
 \end{cases} \label{eq:h(n)desired_for_BPF}
 \end{align}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\columnwidth]{figs/FIR_Bandpass_Filter.png}
+\includegraphics[width=1\columnwidth]{figs/fig8.png}
 \caption{Magnitude Response of Band Pass Filter after using Kaiser Window}
 \label{fig:Kaiser_BPF_response}
 \end{figure}
