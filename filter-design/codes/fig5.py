@@ -6,11 +6,11 @@ from sympy import symbols, exp, I
 s, s_L, z, omega = symbols('s s_L z omega')
 
 # Given transfer function
-H_s_L = 2.709/(1.0*s**4 + 2.267*s**3 + 4.725*s**2 + 4.865*s + 2.769)
+H_s_L = 1.9552/(s_L**4 + 1.9094*s_L**3 + 4.00579649*s_L**2 + 3.71393052828*s_L + 2.0463257062404)
 
 
-Omega_0_val = 0.5172
-B_val =0.1141
+Omega_0_val = 0.4404
+B_val =0.094
 
 
 

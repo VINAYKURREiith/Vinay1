@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Given parameters
-epsilons = [0.2145, 0.35, 0.49, 0.6197]
+epsilons = [0.3043, 0.45, 0.55, 0.6197]
 
 # Read precomputed values of C_N from file
 cn_values = np.loadtxt("cn_values.txt")
@@ -44,7 +44,7 @@ plt.fill(stopband_x, stopband_y, 'y', alpha=0.3, edgecolor='none')
 
 plt.xlabel('$\Omega$_L')
 plt.ylabel('|Ha LP($\Omega$)|')
-plt.legend(loc='best', title='Passband and Stopband', labels=['Epsilon = 0.2145', 'Epsilon = 0.35', 'Epsilon = 0.49', 'Epsilon = 0.6197', 'Passband', 'Stopband'])
+plt.legend(loc='best', title='Passband and Stopband', labels=['Epsilon = 0.3043', 'Epsilon = 0.45', 'Epsilon = 0.55', 'Epsilon = 0.6197', 'Passband', 'Stopband'])
 plt.grid(True)
 plt.savefig("fig1.png")
 

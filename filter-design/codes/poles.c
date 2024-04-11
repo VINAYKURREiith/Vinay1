@@ -3,8 +3,8 @@
 #include <complex.h>
 
 #define N 4
-#define EPSILON 0.2145
-#define OMEGA_LP 1.4682
+#define EPSILON 0.3043
+#define OMEGA_LP 1.4775
 #define PI 3.14159265358979323846
 
 int main() {

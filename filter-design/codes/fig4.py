@@ -2,13 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Given parameters
-s1 = -0.3320 - 1.5755j
-s2 = -0.8015 - 0.6526j
-s3 = -0.8015 + 0.6526j
-s4 = -0.3320 + 1.5755j
-epsilon = 0.2145
-Omega_Lp = 1.4682
-
+s1 = -0.2796 - 1.5228j
+s2 = -0.6751 - 0.6308j
+s3 = -0.6751 + 0.6308j
+s4 = -0.2796 + 1.5228j
+epsilon = 0.3043
+Omega_Lp = 1.4775
 
 # Define denominator polynomial
 den = np.poly([s1, s2, s3, s4])
@@ -16,18 +15,18 @@ den = np.poly([s1, s2, s3, s4])
 # Define frequency range
 w = np.arange(-2, 2.01, 0.01)
 
-G_LP = 0.4166
+G_LP = 1.9552
 num = G_LP
 
-Omega_p1 = 0.5913
-Omega_p2 = 0.702
+Omega_p1 = 0.4899
+Omega_p2 = 0.3959
 
-Omega_s1 = 0.5662
-Omega_s2 = 0.7361
+Omega_s1 = 0.5177
+Omega_s2 = 0.3764
 
 # Define parameters for transformation
-B = 0.1107
-Omega0 = 0.644
+B = 0.094
+Omega0 = 0.4404
 
 # Perform transformation to get s_L
 s_L = (1j * w)**2 + Omega0**2
