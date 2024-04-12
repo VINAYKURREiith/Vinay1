@@ -204,10 +204,10 @@ We know that from \eqref{eq:mag_freq_response}:-
 \begin{align}
     \abs{ H_{a,LP}(s_L)} &= \frac{1}{\sqrt{1+\epsilon^2}} \text{at} \hspace{5pt} \Omega_{L}=1 \implies s_{L} = j \label{eq:Gain_eq_LP} 
 \end{align}
-Substituting respective values in \eqref{eq:Gain_eq_LP} we get $G_{LP}=1.9552$
+Substituting respective values in \eqref{eq:Gain_eq_LP} we get $G_{LP}=0.4052$
 \begin{align}
-     H_{a,LP}(s_L) &= \frac{2.707}{\brak{s_L-s_1}\brak{s_L-s_2}\brak{s_L-s_3}\brak{s_L-s_4}}\\
-     &= \frac{1.9552}{s_{L}^4 + 1.9094s_L^3 + 4.0058s_L^2 + 3.7139s_L + 2.04632}\label{eq:design}
+     H_{a,LP}(s_L) &= \frac{0.4052}{\brak{s_L-s_1}\brak{s_L-s_2}\brak{s_L-s_3}\brak{s_L-s_4}}\\
+     &= \frac{0.4052}{s_{L}^4 + 1.2794s_L^3 +  1.8257s_L^2 + 1.1403s_L +0.4250}\label{eq:design}
 \end{align}
 \begin{lstlisting}
 https://github.com/VINAYKURREiith/Vinay1/blob/master/filter-design/codes/fig3.py
@@ -234,11 +234,11 @@ As there is one to one correspondence between the filters so $\Omega=\Omega_{p1}
 \end{align}
 Substituting \eqref{eq:res1} in \eqref{eq:res2} we obtain Gain of required bass pass filter:
 \begin{align}
-    G_{BP} &= 23.04750
+    G_{BP} &= 1.0469
 \end{align}
 Thus the response in s domain 
 \begin{align}
-    H_{a,BP}\brak{s} &= \frac{1.5265 \times 10^{-4}s^4}{s^8 + 0.1795s^7 + 0.8112s^6 + 0.1075s^5 + 0.2396s^4 + 0.0209s^3 + 0.03052s^2 + 0.00131s + 0.00142} \label{eq:magnitude_bandpass_sdom}
+    H_{a,BP}\brak{s} &= \frac{3.1784 \times 10^{-5}s^4}{s^8 + 0.1203s^7 + 0.7919s^6 + 0.0709s^5 + 0.2320s^4 + 0.0138s^3 + 0.0298s^2 + 0.0009s + 0.0042} \label{eq:magnitude_bandpass_sdom}
 \end{align}
 The expressions in the s-domain and gain factors are computed by writing a Python code. \\
 In Figure 3, we plot $\vert H_{a,BP}(j\Omega)\vert$ as a function of $\Omega$ for both positve as
@@ -263,10 +263,10 @@ From the bilinear transformation, we obtain the digital bandpass filter from the
 \end{align}
 Substituting $s=\frac{1-z^{-1}}{1+z^{-1}}$ in \eqref{eq:magnitude_bandpass_sdom} and calculating expression using a python code we get :
 \begin{align}
-    H_{d,BP}(z) &= \frac{G(z^8 - 4z^6 + 6z^4 - 4z^2 + 1)}{2.39195z^8 - 12.3537z^7 + 32.72278z^6 - 54.77282z^5 + 63.1198z^4 - 50.8227z^3 + 28.1737z^2 - 9.86902z + 1.77353)}
+    H_{d,BP}(z) &= \frac{G(z^8 - 4z^6 + 6z^4 - 4z^2 + 1)}{2.2638z^8 - 11.8454z^7 + 32.0038z^6 - 54.0454z^5 + 63.469z^4 - 51.3874z^3 + 28.949z^2 - 10.1842z + 1.852}
 \end{align}
 
-where $G=1.5265 \times 10^{-4}$\\  
+where $G=3.1784 \times 10^{-5}$\\  
 \begin{lstlisting}
 https://github.com/VINAYKURREiith/Vinay1/blob/master/filter-design/codes/fig5.py
 \end{lstlisting}  

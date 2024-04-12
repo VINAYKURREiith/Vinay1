@@ -2,12 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Given parameters
-s1 = -0.2796 - 1.5228j
-s2 = -0.6751 - 0.6308j
-s3 = -0.6751 + 0.6308j
-s4 = -0.2796 + 1.5228j
-epsilon = 0.3043
-Omega_Lp = 1.4775
+s1 = -0.1874 - 1.0322j
+s2 = -0.4523 - 0.4261j
+s3 = -0.4523 + 0.4261j
+s4 = -0.1874 + 1.0322j
+epsilon = 0.31
+Omega_Lp = 1
 
 # Define denominator polynomial
 den = np.poly([s1, s2, s3, s4])
@@ -15,7 +15,7 @@ den = np.poly([s1, s2, s3, s4])
 # Define frequency range
 w = np.arange(-2, 2.01, 0.01)
 
-G_LP = 1.9552
+G_LP = 0.4052
 num = G_LP
 
 Omega_p1 = 0.4899
@@ -33,7 +33,7 @@ s_L = (1j * w)**2 + Omega0**2
 s_L = s_L / (B * (1j * w))
 
 # Band pass gain
-G_bp = 6.6438
+G_bp = 1.0469
 
 # Substitute s = jw into H(s)
 H = G_bp * (num / np.polyval(den, s_L))

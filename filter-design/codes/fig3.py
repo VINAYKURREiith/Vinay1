@@ -2,12 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Given parameters
-s1 = -0.2796 - 1.5228j
-s2 = -0.6751 - 0.6308j
-s3 = -0.6751 + 0.6308j
-s4 = -0.2796 + 1.5228j
-epsilon = 0.3043
-Omega_Lp = 1.4775
+s1 = -0.1874 - 1.0322j
+s2 = -0.4523 - 0.4261j
+s3 = -0.4523 + 0.4261j
+s4 = -0.1874 + 1.0322j
+epsilon = 0.31
+Omega_Lp = 1
 
 # Generate the denominator polynomial
 den = np.poly([s1, s2, s3, s4])
@@ -31,7 +31,7 @@ Ha_values = 1 / np.sqrt(1 + epsilon**2 * c_N_interpolated**2)
 plt.figure()
 plt.plot(w, Ha_values, '*', label='Design')
 
-G_LP = 2.707
+G_LP = 0.4052
 num = G_LP
 
 # Calculate magnitude response for epsilon = 0.5

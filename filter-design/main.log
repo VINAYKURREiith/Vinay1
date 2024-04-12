@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.26)  11 APR 2024 16:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.26)  12 APR 2024 22:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1211,7 +1211,7 @@ File: figs/fig3.png Graphic file (type png)
 Package pdftex.def Info: figs/fig3.png  used on input line 217.
 (pdftex.def)             Requested size: 345.0pt x 258.76335pt.
 [6 <./figs/fig2.png>] [7 <./figs/fig3.png>]
-Overfull \hbox (113.7106pt too wide) detected at line 242
+Overfull \hbox (98.7106pt too wide) detected at line 242
 []
  []
 
@@ -1419,7 +1419,7 @@ l.257 \end{enumerate}
 Things are pretty mixed up, but I think the worst is over.
 
 [8 <./figs/fig4.png>]
-Overfull \hbox (153.56294pt too wide) detected at line 267
+Overfull \hbox (115.23294pt too wide) detected at line 267
 []
  []
 
@@ -1678,7 +1678,7 @@ fb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsyc.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/urw/times/utmri8a.pfb>
-Output written on main.pdf (13 pages, 313254 bytes).
+Output written on main.pdf (13 pages, 312921 bytes).
 PDF statistics:
  311 PDF objects out of 1000 (max. 8388607)
  258 compressed objects within 3 object streams
